@@ -122,7 +122,6 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
 
                   return Column(
                     children: [
-                      // Favorite Recipes Section
                       if (favoriteRecipes.isNotEmpty) ...[
                         Padding(
                           padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),

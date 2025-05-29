@@ -21,17 +21,16 @@ void main() async {
   FlutterError.onError = (errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
   };
-  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
   PlatformDispatcher.instance.onError = (error, stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
   FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
-  String apiKey = Platform.isIOS ? 'E4fLCW9lx5LkjfqSxHvXBlewDzPC8iAvkuYIljB4KppfXPhU5TfxEfI' : 'YZNCpI1ubcZkfAn8HgNcGtLOAkJBuiaT8JNJAvRVdkZjIoRmbdGi9Rt';
-  Shake.start(apiKey);
-  Shake.setInvokeShakeOnShakeDeviceEvent(true);
-  Shake.setInvokeShakeOnScreenshot(true);
-  Shake.setShowFloatingReportButton(true);
+  // String apiKey = Platform.isIOS ? 'E4fLCW9lx5LkjfqSxHvXBlewDzPC8iAvkuYIljB4KppfXPhU5TfxEfI' : 'YZNCpI1ubcZkfAn8HgNcGtLOAkJBuiaT8JNJAvRVdkZjIoRmbdGi9Rt';
+  // Shake.start(apiKey);
+  // Shake.setInvokeShakeOnShakeDeviceEvent(true);
+  // Shake.setInvokeShakeOnScreenshot(true);
+  // Shake.setShowFloatingReportButton(true);
 
   runApp(const MyApp());
 }
@@ -69,12 +68,12 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.white,
             elevation: 0,
           ),
-          cardTheme: CardTheme(
-            elevation: 2,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
+          cardTheme: CardThemeData(
             color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            elevation: 2,
           ),
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(
